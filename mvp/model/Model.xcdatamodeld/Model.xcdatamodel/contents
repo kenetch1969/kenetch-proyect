@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Character" representedClassName="Character" syncable="YES" codeGenerationType="class">
+        <attribute name="age" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="alias" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="attribute" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="homeLand" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Scenario" inverseName="inhabitant" inverseEntity="Scenario" syncable="YES"/>
+        <relationship name="leaderOf" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Race" inverseName="leader" inverseEntity="Race" syncable="YES"/>
+    </entity>
+    <entity name="Race" representedClassName="Race" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="leader" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Character" inverseName="leaderOf" inverseEntity="Character" syncable="YES"/>
+        <relationship name="territories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Scenario" inverseName="races" inverseEntity="Scenario" syncable="YES"/>
+    </entity>
+    <entity name="Scenario" representedClassName="Scenario" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="picture" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="inhabitant" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Character" inverseName="homeLand" inverseEntity="Character" syncable="YES"/>
+        <relationship name="races" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Race" inverseName="territories" inverseEntity="Race" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Character" positionX="-236" positionY="-180" width="128" height="148"/>
+        <element name="Race" positionX="-36" positionY="-33" width="128" height="88"/>
+        <element name="Scenario" positionX="-38" positionY="-243" width="128" height="103"/>
+    </elements>
+</model>
